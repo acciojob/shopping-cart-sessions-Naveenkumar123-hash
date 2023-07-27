@@ -94,6 +94,37 @@ cartList.addEventListener("click", (event) => {
 // Event listener for clearing the cart
 clearCartButton.addEventListener("click", clearCart);
 
+() => {
+  // Click the "Add to Cart" button for the first product
+  cy.get("ul#product-list").children("li").first().children("button").click();
+
+  // Ensure the correct products are in the cart
+  const expectedProducts = [
+    { id: 1, name: "Product 1", price: 10 },
+    { id: 5, name: "Product 5", price: 50 },
+  ];
+
+  // Check the cart in session storage
+  cy.window()
+    .its("sessionStorage")
+    .should((sessionStorage) => {
+      const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+      // Custom assertion to check for the presence of expected products in the cart
+      expect(cart).to.have.length(expectedProducts.length);
+      expectedProducts.forEach((expectedProduct) => {
+        expect(cart).to.deep.include(expectedProduct);
+      });
+    });
+}
+
+
+
+
+
+
+
+
 // Initial render
 renderProducts();
 renderCart();
