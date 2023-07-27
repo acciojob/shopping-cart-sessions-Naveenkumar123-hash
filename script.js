@@ -13,9 +13,9 @@ const productList = document.getElementById("product-list");
 const cartList = document.getElementById("cart-list");
 const clearCartButton = document.getElementById("clear-cart-btn");
 
-// Function to get the cart data from session storage
 function getCartFromStorage() {
-  return JSON.parse(sessionStorage.getItem("cart")) || [];
+  const cartJSON = sessionStorage.getItem("cart");
+  return cartJSON ? JSON.parse(cartJSON) : [];
 }
 
 // Function to save the cart data to session storage
