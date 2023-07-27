@@ -1,1 +1,32 @@
 /*  your css code here. If applicable */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#clear-cart-btn {
+  margin-top: 20px;
+}
+
+.cart {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #333;
+}
+
+/* Optional: Highlight the selected product in the cart */
+li.selected {
+  background-color: #f0f0f0;
+}
